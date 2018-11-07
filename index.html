@@ -1,6 +1,27 @@
 <!doctype html>
 <head>
-  <script src="resource/config.js"></script>
-</head>
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+  <script src="app/properties/config.js"></script>
+  <script type="text/javascript">
+    console.log(gOptions.apikey);
+    $.ajaxSetup({
+      headers: {
+        'Authorization': "Token token=" + gOptions.apikey
+      }
+    });
+    $.getJSON( "https://www.foodrepo.org/api/v3/products/?token=" + gOptions.apikey, function( data ) {
+      console.log(data);
+      $.each(data.data, function(index, value){
+      var urlim = value.images[0].medium;
+      $("body").append("<p>" + value.ingredients_translations.de + "</p>");
+      $("body").append("<img src=\""+ urlim +"\">");
+    });
 
-<h1>Lets get Started</h1>
+
+
+    });
+  </script>
+</head>
+<body>
+  <h1>Lets get Started</h1>
+</body>
