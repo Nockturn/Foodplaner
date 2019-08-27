@@ -1,0 +1,22 @@
+<div style="overflow: auto;">
+    <h2 style="width:100%; margin-bottom: 20px;">{{ product.display_name_translations.de }}</h2>
+    <img style="margin: 10px; width: 20%" alt="Angular Logo" src="{{product.images[0].medium}}" class="rounded float-left">
+    <table style="width: 70%; float: right;" class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Makronährstoffe</th>
+                <th scope="col">pro 100</th>
+                <th scope="col">Einheit</th>
+                <th scope="col">pro Portion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ing of product.nutrients | keyvalue">
+                <th scope="row">{{ ing.value.name_translations.de }}</th>
+                <td>{{ing.value.per_hundred}}</td>
+                <td>{{ing.value.unit}}</td>
+                <td>{{ing.value.per_portion}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
