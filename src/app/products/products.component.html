@@ -1,7 +1,16 @@
-<div style="overflow: auto;">
-    <h2 style="width:100%; margin-bottom: 20px;">{{ product.display_name_translations.de }}</h2>
-    <img style="margin: 10px; width: 20%" alt="Angular Logo" src="{{product.images[0].medium}}" class="rounded float-left">
-    <table style="width: 70%; float: right;" class="table table-striped">
+<div class="card border-0 bg-transparent" style="width: 100%;">
+  <div class="card-header bg-white row" style="text-align: left;">
+    <div class="col-xs-6 col-md-12 pointer" (click)="isActive=!isActive">
+        <i class="far text-secondary" [ngClass]="{'fa-plus-square': !isActive, 'fa-minus-square': isActive}"></i>
+        &nbsp;
+        {{ product.display_name_translations.de }}
+    </div>
+  </div>
+    <div *ngIf="isActive" class="row">
+    <h3 class="col-12 text-left mt-4"><i class="fa fa-info-circle"></i> Info</h3>
+    <img alt="Angular Logo" src="{{product.images[0].medium}}" class="rounded col-3">
+    <div class="col-9">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Makronährstoffe</th>
@@ -19,4 +28,6 @@
             </tr>
         </tbody>
     </table>
+  </div>
+    </div>
 </div>

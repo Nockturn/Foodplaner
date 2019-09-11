@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
       this.isActive = false;
     } else {
       this.isActive = true;
-    }      
+    }
     const panel = element.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
